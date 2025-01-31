@@ -1,5 +1,6 @@
 import { LayoutDashboard } from 'lucide-react'
 import React from 'react'
+import { NavLink } from 'react-router'
 
 export default function BottomNavbar() {
     return (
@@ -12,7 +13,7 @@ export default function BottomNavbar() {
                 <p>Mega Menu</p>
                 <p>Pages</p>
                 <p>Dashboard</p>
-                <p>Docs</p>
+                <NavLink to={"/docs"}>Docs</NavLink>
             </div>
 
             <div> </div>
