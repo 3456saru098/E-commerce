@@ -13,19 +13,23 @@ import BannerSection from './components/banner-section'
 import PopularProductSection from './components/popular-product-section'
 import HomeMorden from './components/home-modern'
 import UpperFooterSection from './components/upper-footer-section'
+import BlogCategorySection from './pages/blog-category-section'
+import BlogSection from './pages/blog-section'
+
 
 export default function App() {
+  const name="E-commerce "
   return (
     <div className='space-y-4'>
       
       
       <HeroSectionSlider/>
-      <FeatureCategoriesSection/>
+      <FeatureCategoriesSection name={name}/>
       <BannerSection/>
       <PopularProductSection/>
       <HomeMorden/>
       <UpperFooterSection/>
-
+<BlogSection/>       
     </div>
   )
 }

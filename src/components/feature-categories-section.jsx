@@ -5,7 +5,7 @@ import { Pagination } from "swiper/modules";
 import myImage from "../../public/biscuits.jpg";
 
 
-export default function FeatureCategoriesSection() {
+export default function FeatureCategoriesSection({name}) {
   const categories = [
     {
       image: myImage,
@@ -44,7 +44,7 @@ export default function FeatureCategoriesSection() {
 
   return (
     <div className="w-8/12 mx-auto space-y-8 mt-24">
-      <p className=" text-3xl font-semibold ">Featured Categories</p>
+      <p className=" text-3xl font-semibold ">Featured Categories {name}</p>
 
       <div>
         <Swiper

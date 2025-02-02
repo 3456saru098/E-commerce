@@ -9,6 +9,14 @@ import TopNavbar from './components/top-navbar.jsx';
 import MiddleNavbar from './components/middle-navbar.jsx';
 import BottomNavbar from './components/bottom-navbar.jsx';
 import Footer from './components/footer.jsx';
+import Blog_Section from './pages/blog-section.jsx';
+import BlogPage from './pages/blogs.jsx';
+import Shop from './pages/shop.jsx';
+import Stores from './pages/stores.jsx';
+import MegaMenu from './pages/mega-menu.jsx';
+import Dashboard from './pages/dashboard.jsx';
+import Blog from './pages/blogs.jsx';
+import ProductDescription from './pages/product-description.jsx';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
@@ -24,8 +32,17 @@ createRoot(document.getElementById('root')).render(
         <Route path="/" element={<App />} />
         <Route path="/docs" element={<Docs />} />
         <Route path="/categories/:id" element={<SingleCcategory />} />
-      </Routes>
+        <Route path="/blog-section/:id" element={<Blog_Section />} />
+        <Route path="/blog" element={<Blog/>} />
+        <Route path="/shop/" element={<Shop/>} />
+        <Route path="/stores" element={<Stores/>} />
+        <Route path="/megamenu" element={<MegaMenu/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
+        
+        <Route path="/shop/:id" element={<ProductDescription/>} />
 
+      </Routes>
+    
       <Footer/>   
        </BrowserRouter>
   </StrictMode>,
