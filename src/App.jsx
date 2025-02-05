@@ -17,7 +17,9 @@ import BlogCategorySection from './pages/blog-category-section'
 import BlogSection from './pages/blog-section'
 
 
+
 export default function App() {
+  
   const name="E-commerce "
   return (
     <div className='space-y-4'>
@@ -29,7 +31,8 @@ export default function App() {
       <PopularProductSection/>
       <HomeMorden/>
       <UpperFooterSection/>
-<BlogSection/>       
+<BlogSection/>  
+
     </div>
   )
 }

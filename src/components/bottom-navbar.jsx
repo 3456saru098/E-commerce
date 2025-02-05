@@ -14,6 +14,9 @@ export default function BottomNavbar() {
                 <NavLink to="/blog">Blogs</NavLink>
                 <NavLink to='dashboard'>Dashboard</NavLink>
                 <NavLink to={"/docs"}>Docs</NavLink>
+                <NavLink to="/sign-in">SignIn</NavLink>
+                <NavLink to="/sign-up">SignUp</NavLink>
+
             </div>
 
             <div> </div>
