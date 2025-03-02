@@ -11,8 +11,8 @@ app.use(express.json());
 
 //Database Config
 try {
-  mongoose.connect(
-    "mongodb+srv://saritasharmaprajuli:1agOBc201n8NAVuX@cluster0.1giaf.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0"
+  mongoose.connect( 
+    process.env.MONGO_URL
   );
   console.log("MongoDb connected");
 } catch (error) {
@@ -23,8 +23,10 @@ try {
 app.use ("/categories",categoryRoute);
 app.use ("/products",productRoute);
 
+app.get ("/",(req,res)=>{
+  res.send("Ecommerce is running");
+})
 
-
-app.listen(4000, () => {
-  console.log("Server is running on port 4000");
+app.listen(process.env.APP_PORT, () => {
+  console.log(`Server is  running on http://localhost:${process.env.APP_PORT}`);
 });
