@@ -1,10 +1,12 @@
-
+import cloudinary from "../lib/cloudinaryConfig.js"
 import { Product } from "../schema/productSchema.js";
 
 // Product CRUD
 //Create a product
 export const createProduct= async (req, res) => {
     try {
+     
+      // console.log(cloudinaryResponse);
       //Check if product name already taken or not
       const productExist = await Product.findOne({ name: req.body.name });
       //this is for name
@@ -14,8 +16,11 @@ export const createProduct= async (req, res) => {
           .status(409)
           .json({ message: "Name already taken,please choose different name" });
       }
+
+      // Upload the image in cloudinary and get the Url
+     const cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
   
-      const newProduct = await new Product(req.body).save();
+      const newProduct = await new Product({...req.body,imageUrl:cloudinaryResponse.secure_url}).save();
       return res.status(201).json({
         message: "product created successfully",
         data: newProduct,
@@ -56,19 +61,34 @@ export const createProduct= async (req, res) => {
   //Update a product
   export const updateProductById= async (req, res) => {
     try {
-      const updatedProduct = await Product.findByIdAndUpdate(
-        req.params.id,
-        req.body,
-        { new: true }
-      );
+
+//Check if product name already taken or not
+const productExist = await Product.findOne({ name: req.body.name });
+//this is for name
+//if we want to check for another like email, pp etc just we need to change the name instead of name
+if (productExist) {
+  return res
+    .status(409)
+    .json({ message: "Name already taken,please choose different name" });
+}
+   let cloudinaryResponse;
+   if (req.file){
+     cloudinaryResponse = await cloudinary.uploader.upload(req.file.path);
+     const updatedProduct = await Product.findByIdAndUpdate( req.params.id, {...req.body,imageUrl:cloudinaryResponse.secure_url},{ new: true });
+     if (!updatedProduct) {
+      return res.status(400).json({ message: "Product not found" });
+    }
+    return res.status(200).json({
+      message: "Product update successfully",
+      data: updatedProduct,
+    });
+    }
+
+
+     
   
-      if (!updatedProduct) {
-        return res.status(400).json({ message: "Product not found" });
-      }
-      return res.status(200).json({
-        message: "Product update successfully",
-        data: updatedProduct,
-      });
+     
+    
     } catch (error) {
       return res.status(500).json({ message: "internal server  error" });
     }

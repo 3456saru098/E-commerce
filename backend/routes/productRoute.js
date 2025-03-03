@@ -1,15 +1,19 @@
 import express from "express";
-import { createProduct, deleteProductById, getAllProduct, getOneProductById, updateProductById } from "../controller/productController.js";
+import {
+  createProduct,
+  deleteProductById,
+  getAllProduct,
+  getOneProductById,
+  updateProductById,
+} from "../controller/productController.js";
 const router = express.Router();
+import multer from "multer";
+const upload = multer({ dest: "uploads/" });
 
-router.post("/",createProduct);
-router.get("/",getAllProduct);
-router.get("/:id",getOneProductById);
-router.patch("/:id",updateProductById);
-router.delete("/:id",deleteProductById);
+router.post("/", upload.single("imageUrl"), createProduct);
+router.get("/", getAllProduct);
+router.get("/:id", getOneProductById);
+router.patch("/:id", updateProductById);
+router.delete("/:id", deleteProductById);
 
 export default router;
-
-
-
-
