@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import 'dotenv/config'
 import categoryRoute from "./routes/categoryRoute.js"
 import productRoute from "./routes/productRoute.js"
+import userRoute from "./routes/userRoute.js"
+
 
 // App Config
 const app = express();
@@ -22,6 +24,10 @@ try {
 
 app.use ("/categories",categoryRoute);
 app.use ("/products",productRoute);
+app.use ("/users",userRoute);
+
+
+
 
 app.get ("/",(req,res)=>{
   res.send("Ecommerce is running");
