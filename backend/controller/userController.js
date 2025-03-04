@@ -70,14 +70,6 @@ export const loginUser= async(req,res)=>{
     }
 };
 
-
-
-
-
-
-
-
-
 // Get all user
 export const getAllUsers = async(req,res)=>{
     try {
@@ -96,13 +88,52 @@ export const getAllUsers = async(req,res)=>{
 };
 
 // Get single  user by id
-export const getSingleUserById = async(req,res)=>{};
+export const getSingleUserById = async (req, res) => {
+    try {
+      const AllUsers = await User.findById();
+      return res.status(200).json({
+        message: "All user fetch successfully.",
+        data: AllUsers,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        message: "Internal server error.",
+      });
+    }
+  };
 
 //Update user by id
-export const updateUserById = async(req,res)=>{};
+export const updateUserById = async (req, res) => {
+    try {
+      const updateUser = await User.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+      });
+      return res.status(200).json({
+        message: "User data update Successfully.",
+        data: updateUser,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        message: "Internal server error.",
+      });
+    }
+  };
+  
 
 // Delete user by id
-export const deleteUserById = async(req,res)=>{};
+export const deleteUserById = async (req, res) => {
+    try {
+      const deleteUser = await User.findByIdAndDelete(req.params.id);
+      return res.status(200).json({
+        message: "User data delete successfully.",
+        data: deleteUser,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        message: "Internal server error.",
+      });
+    }
+  };
 
 
 
