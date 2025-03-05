@@ -83,14 +83,11 @@ export const createProduct= async (req, res) => {
     data: updatedProduct,
   });
      
-    
-   
 } catch (error) {
       return res.status(500).json({ message: "internal server  error" });
     }
   };
   
-
   // Delete a product
   export const deleteProductById= async (req, res) => {
     try {

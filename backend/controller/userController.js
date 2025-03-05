@@ -13,8 +13,6 @@ export const registerUser= async(req,res)=>{
         message: "user already exists with this email please choose another email",
     })
    }
-
-   
     //Hash the before saving it to the database
    const hashedPassword= await bcrypt.hash(req.body.password,saltRounds);
    console.log(hashedPassword)
