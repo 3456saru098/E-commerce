@@ -7,12 +7,13 @@ import { NavLink } from 'react-router';
 
 export default function SingleProductard({item}) {
     return (
-    <NavLink to={`/shop/${item.name}`}> <div
+    <NavLink to={`/shop/${item._id}`}> <div
   
     className=" border border-gray-300 rounded-md flex  flex-col items-center justify-center  p-4 space-y-1.5  ">
     <img
-      src={myImage}
+      src={item.imageUrl}
       alt=""
+      className='h-44'
     />
     <p className=" font-semibold opacity-50 text-xs">{item.category}</p>
     <p className=" font-semibold text-sm">{item.name}</p>
@@ -23,7 +24,7 @@ export default function SingleProductard({item}) {
         value={4.5}
         color2={"#ffd700"}
       />
-      <p className=" font-semibold opacity-70 text-sm">4.5 (4)</p>
+      {/* <p className=" font-semibold opacity-70 text-sm">4.5 (4)</p> */}
     </div>
 
     <div className=" flex items-center justify-between w-full">

@@ -3,7 +3,7 @@ import "swiper/css";
 import "swiper/css/pagination";
 import { Pagination } from "swiper/modules";
 import myImage from "../../public/biscuits.jpg";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 export default function FeatureCategoriesSection({}) {
@@ -17,6 +17,19 @@ console.log(name)
 const handleChangeName = ()=>{
   setName("saruu changed")
 }
+
+//UseEffect Hook
+// useEffect runs only when the page reload and when its dependency gets changed
+// const a=7;
+// useEffect(() => {
+// console.log("hello world")
+// },[a]);
+
+useEffect(()=>{
+  
+},[])
+
+
 
 
   const categories = [
