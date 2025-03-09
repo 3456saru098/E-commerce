@@ -4,12 +4,17 @@ import 'dotenv/config'
 import categoryRoute from "./routes/categoryRoute.js"
 import productRoute from "./routes/productRoute.js"
 import userRoute from "./routes/userRoute.js"
-
+import cors from "cors"
 
 // App Config
 const app = express();
+
 //Middleware
 app.use(express.json());
+// cors is also middleware
+app.use(cors({
+  origin:"http://localhost:5173"
+}))
 
 //Database Config
 try {
