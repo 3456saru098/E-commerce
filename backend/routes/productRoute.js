@@ -11,7 +11,7 @@ import multer from "multer";
 import { verifyToken } from "../middleware/verifyToken.js";
 const upload = multer({ dest: "uploads/" });
 
-router.post("/",verifyToken, upload.single("imageUrl"), createProduct);
+router.post("/", upload.single("imageUrl"), createProduct)
 router.get("/", getAllProduct);
 router.get("/:id", getOneProductById);
 router.patch("/:id",verifyToken,upload.single("imageUrl"), updateProductById);
