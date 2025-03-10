@@ -1,8 +1,9 @@
 import myImage from "../../public/biscuits.jpg";
 import ReactStars from "react-stars";
-import SingleProductard from "./single-product-card";
+import SingleProductcard from "./single-product-card";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import { Product } from "../../../backend/schema/productSchema";
 export default function PopularProductsSection() {
   // const products = [
   //   {
@@ -143,7 +144,8 @@ fetchAllProducts()
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5  gap-4 ">
         {allProducts?.map((eachItem, index) => (
-          <SingleProductard item={eachItem} key={index} />
+         <SingleProductcard item={Product} />
+
         ))}
       </div>
     </div>

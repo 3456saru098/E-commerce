@@ -28,6 +28,19 @@ const createProduct = async(e)=>{
   const response = await axios.post("http://localhost:4000/products", formData)
   console.log(response)
 
+
+
+
+
+
+
+
+
+
+
+
+
+  
   } catch (error) {
     console.log("something went wrong ", error)
     

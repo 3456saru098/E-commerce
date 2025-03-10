@@ -3,13 +3,11 @@ import ReactStars from 'react-stars'
 //import ReactStars from 'react-stars'
 //import myImage from "../../public/biscuits.jpg"; 
 import myImage from '../../public/biscuits.jpg';
-import { NavLink } from 'react-router';
+import { Link, NavLink } from "react-router";
 
 export default function SingleProductard({item}) {
     return (
-    <NavLink to={`/shop/${item._id}`}> <div
-  
-    className=" border border-gray-300 rounded-md flex  flex-col items-center justify-center  p-4 space-y-1.5  ">
+      <Link to={`/shop/${item._id}`} className="border border-gray-300 rounded-md flex flex-col items-center justify-center p-4 space-y-1.5">
     <img
       src={item.imageUrl}
       alt=""
@@ -33,6 +31,8 @@ export default function SingleProductard({item}) {
       </p>
       <button className=" bg-red-400 text-white font-semibold rounded-md px-4 py-1 text-xs">Add</button>
     </div>
-  </div></NavLink>    
+    </Link>
+  
+ 
     )
 }
