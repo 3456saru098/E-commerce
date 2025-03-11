@@ -143,8 +143,8 @@ fetchAllProducts()
       <p className=" text-3xl font-semibold ">Popular Products</p>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 2xl:grid-cols-5  gap-4 ">
-        {allProducts?.map((eachItem, index) => (
-         <SingleProductcard item={Product} />
+        {allProducts?.map((item, index) => (
+         <SingleProductcard item={item} key={index}/>
 
         ))}
       </div>
