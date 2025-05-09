@@ -95,7 +95,7 @@ const Items = [
 
 export default function BlogSection() {
   return (
-    <div className="w-10/12 mx-auto">
+    <div className="w-full mx-auto">
       {/* Breadcrumb */}
       <div className="mt-2 font-semibold">
         <p className="flex gap-4">
@@ -111,10 +111,10 @@ export default function BlogSection() {
 
         {/* Featured Blog */}
         <div className="mt-12 flex max-sm:flex-col items-center justify-between gap-8">
-          <div className="relative w-full h-[60vh] cursor-pointer rounded-xl overflow-hidden">
+          <div className="relative w-full  cursor-pointer rounded-xl overflow-hidden">
             <img
-              className="w-full h-full object-cover hover:scale-110 duration-700"
-              src="/blogs_images/blog-img-1.jpg"
+              className="w-full h-auto tranform  object-cover transition-all hover:scale-110 duration-700"
+              src={Image1}
               alt="Featured Blog"
             />
           </div>
@@ -135,7 +135,7 @@ export default function BlogSection() {
         </div>
 
         {/* Blog List */}
-        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 mt-12 gap-x-12 gap-y-8">
+        <div className="grid sm:grid-cols-1  md: grid-cols-2 lg:grid-cols-3 px-11 mt-5">
           {Items.map((item, index) => (
             <BlogCategorySection key={index} item={item} />
           ))}
